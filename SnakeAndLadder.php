@@ -22,12 +22,20 @@ class GameOperation
          switch ($option) {
              case GameOperation::LADDER:
                 echo " player on Ladder move to next position";
-                   $this->position += $rollDie;
-                 echo "\n";
+                 //  $this->position += $rollDie;
+                 if ($this->position + $rollDie > 100) {
+                    $this->position = $this->position;
+                } else {
+                    $this->position += $rollDie;
+                }
+                echo "\n";
                  break;
              case GameOperation::SNAKE:
                 echo " player on snake move to previous Position";
                 $this->position -= $rollDie;
+                if ($this->position <= 0) {
+                    $this->position = 0;
+                }
                  echo "\n";
                  break;
              default:
