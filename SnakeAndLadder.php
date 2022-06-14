@@ -6,6 +6,7 @@ class GameOperation
     const SNAKE = 2;
     const NOPLAY = 0;
     public $position = 0;
+    public $count = 0;//Use for roll count
 
     function welcomeGame()
     {
@@ -19,6 +20,7 @@ class GameOperation
         $rollDie = $this->diceRoll();
          $option = rand(0, 2); // options to play
        // echo "Option:".$option ."\n";
+        $this->count++;
          switch ($option) {
              case GameOperation::LADDER:
                 echo " player on Ladder move to next position";
@@ -44,6 +46,8 @@ class GameOperation
          }
          echo "Current Position is:" . $this->position . "\n";
         }
+        echo "Player won the game"."\n";
+        echo "How many times you rolling a die: ".$this->count;
      }
 
       /*function for palyer roll a die and
@@ -64,5 +68,5 @@ $obj = new GameOperation();
 $obj->welcomeGame();
 //$obj->diceRoll();
 $obj->nextMove();
-echo "Player won";
+//echo "Player won";
 ?>
